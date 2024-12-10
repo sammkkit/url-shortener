@@ -1,4 +1,3 @@
-
 const shortid = require('shortid');
 const URL = require("../models/url")
 async function handleGenerateNewshortUrl(req, res) {
@@ -30,14 +29,14 @@ async function handleRedirect(req, res) {
             },
             { new: true }
         );
-        console.log("Updated entry:", entry); // Log the updated entry to see if it's correct
+        // console.log("Updated entry:", entry); // Log the updated entry to see if it's correct
 
         if (!entry) {
             console.log(`No entry found for shortID: ${shortID}`);
             return res.status(404).json({ message: "Short URL not found" });
         }
-        console.log("Updated entry 2:", entry); // Log the updated entry
-        console.log(`Redirecting to: ${entry.redirectURL}`)
+        // console.log("Updated entry 2:", entry); // Log the updated entry
+        // console.log(`Redirecting to: ${entry.redirectURL}`)
         res.redirect(entry.redirectURL)
     } catch (error) {
         console.error("Error in handleRedirect:", error);
